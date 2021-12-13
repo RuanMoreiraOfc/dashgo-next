@@ -9,13 +9,13 @@ import {
    Button,
 } from '@chakra-ui/react';
 
-export default Home;
+export default SignIn;
 
-function Home() {
+function SignIn() {
    return (
       <div>
          <Head>
-            <title>Home | Dashgo</title>
+            <title>Entrar | Dashgo</title>
          </Head>
 
          <Flex
