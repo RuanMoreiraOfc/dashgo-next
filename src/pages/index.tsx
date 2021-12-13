@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Head from 'next/head';
 
 import { Flex, Stack, Button } from '@chakra-ui/react';
@@ -8,7 +9,7 @@ export default SignIn;
 
 function SignIn() {
    return (
-      <div>
+      <Fragment>
          <Head>
             <title>Entrar | Dashgo</title>
          </Head>
@@ -52,6 +53,6 @@ function SignIn() {
                </Stack>
             </Flex>
          </Flex>
-      </div>
+      </Fragment>
    );
 }
