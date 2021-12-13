@@ -46,8 +46,8 @@
       "@c-atoms/*": [
         "src/components/atoms/*"
       ],
-      "@c-elements/*": [
-        "src/components/elements/*"
+      "@c-molecules/*": [
+        "src/components/molecules/*"
       ],
       "@c-organisms/*": [
         "src/components/organisms/*"
