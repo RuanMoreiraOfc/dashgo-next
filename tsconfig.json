@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,27 +19,51 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@lib/*": ["src/lib/*"],
-
-      "@services/*": ["src/services/*"],
-
-      "@contexts/*": ["src/contexts/*"],
-
-      "@hooks/*": ["src/hooks/*"],
-
-      "@pages/*": ["src/pages/*"],
-
-      "@styles/*": ["src/styles/*"],
-
-      "@a-icons/*": ["src/assets/icons/*"],
-      "@a-images/*": ["src/assets/images/*"],
-
-      "@c-atoms/*": ["src/components/atoms/*"],
-      "@c-elements/*": ["src/components/elements/*"],
-      "@c-organisms/*": ["src/components/organisms/*"],
-      "@c-templates/*": ["src/components/templates/*"]
-    }
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@contexts/*": [
+        "src/contexts/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@a-icons/*": [
+        "src/assets/icons/*"
+      ],
+      "@a-images/*": [
+        "src/assets/images/*"
+      ],
+      "@c-atoms/*": [
+        "src/components/atoms/*"
+      ],
+      "@c-elements/*": [
+        "src/components/elements/*"
+      ],
+      "@c-organisms/*": [
+        "src/components/organisms/*"
+      ],
+      "@c-templates/*": [
+        "src/components/templates/*"
+      ]
+    },
+    "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
