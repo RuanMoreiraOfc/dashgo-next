@@ -11,7 +11,7 @@ function SignIn() {
    return (
       <Fragment>
          <Head>
-            <title>Entrar | Dashgo</title>
+            <title>Entrar | dashgo</title>
          </Head>
 
          <Flex
