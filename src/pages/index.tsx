@@ -1,13 +1,8 @@
 import Head from 'next/head';
 
-import {
-   Flex,
-   Stack,
-   FormControl,
-   FormLabel,
-   Input,
-   Button,
-} from '@chakra-ui/react';
+import { Flex, Stack, Button } from '@chakra-ui/react';
+
+import LabeledInput from '@c-atoms/LabeledInput';
 
 export default SignIn;
 
@@ -34,35 +29,18 @@ function SignIn() {
                flexDir='column'
             >
                <Stack spacing='4'>
-                  <FormControl>
-                     <FormLabel>Email</FormLabel>
-                     <Input
-                        type='email'
-                        name='email'
-                        variant='filled'
-                        size='lg'
-                        bgColor='gray.900'
-                        focusBorderColor='pink.500'
-                        _hover={{
-                           bgColor: 'disable',
-                        }}
-                     />
-                  </FormControl>
+                  <LabeledInput
+                     label='Email'
+                     type='email'
+                     name='email' //
+                  />
 
-                  <FormControl>
-                     <FormLabel>Password</FormLabel>
-                     <Input
-                        type='password'
-                        name='password'
-                        size='lg'
-                        variant='filled'
-                        bgColor='gray.900'
-                        focusBorderColor='pink.500'
-                        _hover={{
-                           bgColor: 'disable',
-                        }}
-                     />
-                  </FormControl>
+                  <LabeledInput
+                     label='Senha'
+                     type='password'
+                     name='password' //
+                  />
+
                   <Button
                      type='submit'
                      size='lg'
