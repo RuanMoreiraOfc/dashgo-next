@@ -1,8 +1,42 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, theme as defaultTheme } from '@chakra-ui/react';
+
+import { RecursivePartial } from '@~types/recursivePartial';
 
 export { theme };
 
+type DefaultThemeType = RecursivePartial<typeof defaultTheme>;
+
 const theme = extendTheme({
+  components: {
+    Button: {
+      baseStyle: {
+        outline: false,
+        _focus: {
+          boxShadow: false,
+        },
+      },
+    },
+    Input: {
+      baseStyle: {
+        field: {
+          outline: false,
+        },
+      },
+    },
+    Link: {
+      baseStyle: {
+        outline: false,
+        _focus: {
+          boxShadow: false,
+        },
+      },
+    },
+  },
+  transition: {
+    property: {
+      common: defaultTheme.transition.property.common + ', outline-offset',
+    },
+  },
   colors: {
     gray: {
       '900': '#181B23',
@@ -23,10 +57,25 @@ const theme = extendTheme({
   },
   styles: {
     global: {
+      '*': {
+        outline: 'auto',
+        outlineStyle: 'unset',
+        outlineOffset: 5,
+
+        transitionDuration: '200ms',
+
+        _focusVisible: {
+          outlineStyle: 'auto',
+          outlineOffset: 0,
+        },
+        _focusWithin: {
+          outlineOffset: 0,
+        },
+      },
       body: {
         bg: 'gray.900',
         color: 'gray.50',
       },
     },
   },
-});
+} as DefaultThemeType);
