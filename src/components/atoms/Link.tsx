@@ -11,14 +11,21 @@ import {
    Icon, //
 } from '@chakra-ui/react';
 
-export default Link;
-export type { Props as LinkProps };
+import type { PickRequired } from '@~types/pickRequired';
 
-type Props = {
-   to: string;
+export default Link;
+export type {
+   Props as LinkProps,
+   StyleProps as LinkStyleProps, //
+};
+
+type StyleProps = {
+   to?: string;
    noIcon?: true;
    selfExternal?: boolean;
 } & Omit<ChakraLinkProps, 'href'>;
+
+type Props = PickRequired<StyleProps, 'to'>;
 
 function Link({
    children,
@@ -60,7 +67,7 @@ function Link({
       <NextLink href={to} passHref>
          <ChakraLink {...linkStyles} {...linkProps}>
             {children}
-            {!noIcon && isExternal && <Icon as={MdOpenInNew} {...iconStyles} />}
+            {!noIcon && isExternal && <Icon {...iconStyles} as={MdOpenInNew} />}
          </ChakraLink>
       </NextLink>
    );
