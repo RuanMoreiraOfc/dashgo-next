@@ -76,6 +76,9 @@ const theme = extendTheme({
         bg: 'gray.900',
         color: 'gray.50',
       },
+      svg: {
+        fontSize: '20',
+      },
     },
   },
 } as DefaultThemeType);
