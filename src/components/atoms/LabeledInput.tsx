@@ -22,7 +22,7 @@ const inputStyles: InputProps = {
    size: 'lg',
    variant: 'filled',
    bgColor: 'gray.900',
-   focusBorderColor: 'pink.500',
+   focusBorderColor: 'gray.900',
    _hover: {
       bgColor: 'disabled',
    },
