@@ -1,4 +1,4 @@
-import { MdOpenInNew } from 'react-icons/md';
+import { MdOpenInNew as ExternalLinkIcon } from 'react-icons/md';
 
 import NextLink from 'next/link';
 
@@ -67,7 +67,9 @@ function Link({
       <NextLink href={to} passHref>
          <ChakraLink {...linkStyles} {...linkProps}>
             {children}
-            {!noIcon && isExternal && <Icon {...iconStyles} as={MdOpenInNew} />}
+            {!noIcon && isExternal && (
+               <Icon {...iconStyles} as={ExternalLinkIcon} />
+            )}
          </ChakraLink>
       </NextLink>
    );
