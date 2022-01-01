@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { ChakraProvider } from '@chakra-ui/react';
 
 import Header from '@c-templates/Header';
+import Sidebar from '@c-templates/Sidebar';
 
 export default MyApp;
 
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
          {pathname !== '/' && <Header />}
 
          <main>
+            {pathname !== '/' && <Sidebar />}
             <Component {...pageProps} />
          </main>
       </ChakraProvider>
