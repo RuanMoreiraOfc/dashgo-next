@@ -9,17 +9,30 @@ export type {
    StyleProps as LimitedContainerStyleProps, //
 };
 
-type StyleProps = FlexProps;
+type StyleProps = {
+   variant?: 'container' | 'wrapper';
+} & FlexProps;
 
 type Props = PickRequired<StyleProps, 'as'>;
 
-function LimitedContainer(props: Props) {
-   return <Flex {...limitedContainerStyles} {...props} />;
+function LimitedContainer({ variant = 'container', ...restProps }: Props) {
+   const styles =
+      variant === 'container' ? limitedContainerStyles : limitedWrapperStyles;
+
+   return <Flex {...styles} {...restProps} />;
 }
 
-const limitedContainerStyles: StyleProps = {
+const commonStyles: StyleProps = {
    maxW: 1480,
    w: '100%',
+};
+
+const limitedContainerStyles: StyleProps = {
+   ...commonStyles,
    mx: 'auto',
    px: '6',
+};
+
+const limitedWrapperStyles: StyleProps = {
+   ...commonStyles,
 };
