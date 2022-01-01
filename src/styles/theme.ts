@@ -79,6 +79,17 @@ const theme = extendTheme({
       svg: {
         fontSize: '20',
       },
+      nav: {
+        display: 'contents',
+      },
+      ul: {
+        listStyle: 'none',
+
+        display: 'contents',
+      },
+      li: {
+        listStyle: 'none',
+      },
     },
   },
 } as DefaultThemeType);
