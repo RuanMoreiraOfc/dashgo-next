@@ -3,10 +3,12 @@ import { MdOpenInNew as ExternalLinkIcon } from 'react-icons/md';
 import NextLink from 'next/link';
 
 import type {
+   BoxProps,
    LinkProps as ChakraLinkProps,
    IconProps, //
 } from '@chakra-ui/react';
 import {
+   Box,
    Link as ChakraLink,
    Icon, //
 } from '@chakra-ui/react';
@@ -23,7 +25,8 @@ type StyleProps = {
    to?: string;
    noIcon?: true;
    selfExternal?: boolean;
-} & Omit<ChakraLinkProps, 'href'>;
+   insideOf?: ChakraLinkProps['as'];
+} & Omit<ChakraLinkProps, 'href' | 'as'>;
 
 type Props = PickRequired<StyleProps, 'to'>;
 
@@ -32,6 +35,7 @@ function Link({
    to,
    selfExternal,
    noIcon,
+   insideOf,
    ...restLinkProps //
 }: Props) {
    if (
@@ -63,17 +67,35 @@ function Link({
       ...restLinkProps,
    };
 
-   return (
+   // ***
+
+   const FinalLinkComponent = () => (
       <NextLink href={to} passHref>
          <ChakraLink {...linkStyles} {...linkProps}>
             {children}
             {!noIcon && isExternal && (
-               <Icon {...iconStyles} as={ExternalLinkIcon} />
+               <Box
+                  {...iconWrapperStyles}
+                  ml={'-' + (linkProps.rowGap ?? linkProps.gap)}
+                  as='span'
+               >
+                  <Icon {...iconStyles} as={ExternalLinkIcon} />
+               </Box>
             )}
          </ChakraLink>
       </NextLink>
    );
+
+   return insideOf !== undefined ? (
+      <Box {...linkWrapperStyles} as={insideOf}>
+         <FinalLinkComponent />
+      </Box>
+   ) : (
+      <FinalLinkComponent />
+   );
 }
+
+const linkWrapperStyles: BoxProps = {};
 
 const linkStyles: ChakraLinkProps = {
    display: 'inline-block',
@@ -82,6 +104,8 @@ const linkStyles: ChakraLinkProps = {
       textDecor: 'disabled',
    },
 };
+
+const iconWrapperStyles: BoxProps = {};
 
 const iconStyles: IconProps = {
    ml: '1',
