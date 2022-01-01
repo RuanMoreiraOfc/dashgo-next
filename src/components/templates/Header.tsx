@@ -67,8 +67,6 @@ function Header(props: Props) {
 
 const headerStyles: StyleProps = {
    h: '20',
-   mx: 'auto',
-   px: '6',
    pt: '4',
    align: 'center',
 };
