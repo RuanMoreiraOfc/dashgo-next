@@ -33,7 +33,12 @@ type Props = Omit<StyleProps, 'as' | 'children'>;
 
 function Sidebar(props: Props) {
    return (
-      <LimitedContainer {...sidebarStyles} {...props} as='aside'>
+      <LimitedContainer
+         {...sidebarStyles}
+         {...props}
+         as='aside'
+         variant='wrapper'
+      >
          <Stack {...contentStyles} as='ul'>
             <LinkListItemWithCaption
                {...linkListStyles}
@@ -92,7 +97,6 @@ const sidebarStyles: StyleProps = {
    maxW: '64',
    h: 'calc(100vh - 5rem)',
    pt: '6',
-   px: 'unset',
    transition: 'none',
 };
 
