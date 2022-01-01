@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 
 import { ChakraProvider } from '@chakra-ui/react';
 
+import LimitedContainer from '@c-atoms/LimitedContainer';
+
 import Header from '@c-templates/Header';
 import Sidebar from '@c-templates/Sidebar';
 
@@ -17,10 +19,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider theme={theme}>
          {pathname !== '/' && <Header />}
 
-         <main>
+         <LimitedContainer as='main' align='flex-start'>
             {pathname !== '/' && <Sidebar />}
             <Component {...pageProps} />
-         </main>
+         </LimitedContainer>
       </ChakraProvider>
    );
 }
