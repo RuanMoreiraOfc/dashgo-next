@@ -20,4 +20,6 @@ function LimitedContainer(props: Props) {
 const limitedContainerStyles: StyleProps = {
    maxW: 1480,
    w: '100%',
+   mx: 'auto',
+   px: '6',
 };
