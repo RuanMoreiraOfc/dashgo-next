@@ -1,5 +1,13 @@
-import type { StackProps, TextProps, BoxProps } from '@chakra-ui/react';
-import { Stack, Text, Box } from '@chakra-ui/react';
+import type {
+   StackProps,
+   TextProps,
+   BoxProps, //
+} from '@chakra-ui/react';
+import {
+   Stack,
+   Text,
+   Box, //
+} from '@chakra-ui/react';
 
 import type { LinkStyleProps } from '@c-atoms/Link';
 import Link from '@c-atoms/Link';
@@ -13,6 +21,7 @@ export type {
 };
 
 type StyleProps = {
+   insideOf?: BoxProps['as'];
    caption?: string;
    linkListProps?: PickRequired<
       Omit<LinkStyleProps, 'insideOf'>,
@@ -25,12 +34,13 @@ type Props = PickRequired<
 >;
 
 function LinkListItemWithCaption({
+   insideOf,
    caption,
    linkListProps,
    ...restProps
 }: Props) {
-   return (
-      <Stack {...linkListItemWithCaptionStyles} as='li'>
+   const FinalComponent = () => (
+      <Stack {...linkListItemWithCaptionStyles} as='ul'>
          <Text {...topicStyles} as='li'>
             {caption}
          </Text>
@@ -48,7 +58,17 @@ function LinkListItemWithCaption({
          </Box>
       </Stack>
    );
+
+   return insideOf !== undefined ? (
+      <Box as={insideOf}>
+         <FinalComponent />
+      </Box>
+   ) : (
+      <FinalComponent />
+   );
 }
+
+const linkListItemWithCaptionWrapperStyles: BoxProps = {};
 
 const linkListItemWithCaptionStyles: StyleProps = {
    spacing: '6',
