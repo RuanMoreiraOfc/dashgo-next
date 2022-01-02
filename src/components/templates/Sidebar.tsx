@@ -42,6 +42,7 @@ function Sidebar(props: Props) {
          <Stack {...contentStyles} as='ul'>
             <LinkListItemWithCaption
                {...linkListStyles}
+               insideOf='li'
                caption='Geral'
                linkListProps={[
                   {
@@ -66,6 +67,7 @@ function Sidebar(props: Props) {
             />
             <LinkListItemWithCaption
                {...linkListStyles}
+               insideOf='li'
                caption='Automação'
                linkListProps={[
                   {
