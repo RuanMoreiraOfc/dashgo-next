@@ -82,7 +82,7 @@ const topicStyles: TextProps = {
 };
 
 const listStyles: StackProps = {
-   spacing: '2',
+   gap: '2',
 };
 
 const linkStyles: LinkStyleProps = {
