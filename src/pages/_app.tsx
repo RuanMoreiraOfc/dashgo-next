@@ -15,12 +15,18 @@ export default MyApp;
 function MyApp({ Component, pageProps }: AppProps) {
    const { pathname } = useRouter();
 
+   const isNotAtHome = pathname !== '/';
+
    return (
       <ChakraProvider theme={theme}>
-         {pathname !== '/' && <Header />}
+         {isNotAtHome && <Header />}
 
-         <LimitedContainer as='main' align='flex-start'>
-            {pathname !== '/' && <Sidebar />}
+         <LimitedContainer
+            pt={isNotAtHome ? '6' : undefined}
+            align='flex-start'
+            as='main'
+         >
+            {isNotAtHome && <Sidebar />}
             <Component {...pageProps} />
          </LimitedContainer>
       </ChakraProvider>
