@@ -97,8 +97,6 @@ function Sidebar(props: Props) {
 
 const sidebarStyles: StyleProps = {
    maxW: '64',
-   h: 'calc(100vh - 5rem)',
-   pt: '6',
    transition: 'none',
 };
 
