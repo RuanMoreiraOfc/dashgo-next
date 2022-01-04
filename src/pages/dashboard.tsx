@@ -1,19 +1,9 @@
-import dynamic from 'next/dynamic';
-
 import { Fragment } from 'react';
 import Head from 'next/head';
 
 import { theme } from '@chakra-ui/react';
-import type {
-   SimpleGridProps,
-   BoxProps,
-   TextProps, //
-} from '@chakra-ui/react';
-import {
-   SimpleGrid,
-   Box,
-   Text, //
-} from '@chakra-ui/react';
+import type { SimpleGridProps } from '@chakra-ui/react';
+import { SimpleGrid } from '@chakra-ui/react';
 
 import type { GraphicProps, GraphicStyleProps } from '@c-molecules/Graphic';
 import Graphic from '@c-molecules/Graphic';
