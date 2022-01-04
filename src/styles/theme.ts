@@ -31,6 +31,20 @@ const theme = extendTheme({
         },
       },
     },
+    Checkbox: {
+      baseStyle: {
+        control: {
+          outlineOffset: 7,
+          transitionDuration: false,
+          transitionProperty: false,
+          _focus: {
+            outlineOffset: 2,
+            outlineStyle: 'auto',
+            boxShadow: false,
+          },
+        },
+      },
+    },
   },
   transition: {
     property: {
@@ -64,12 +78,12 @@ const theme = extendTheme({
 
         transitionDuration: '200ms',
 
-        _focusVisible: {
-          outlineStyle: 'auto',
+        ':focus, :focus-visible, :focus-within': {
           outlineOffset: 0,
         },
-        _focusWithin: {
-          outlineOffset: 0,
+
+        _focusVisible: {
+          outlineStyle: 'auto',
         },
       },
       body: {
