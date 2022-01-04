@@ -1,7 +1,5 @@
 import dynamic from 'next/dynamic';
 
-import { PickRequired } from '@~types/pickRequired';
-
 import type { Props as ReactApexchartsProps } from 'react-apexcharts';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -13,6 +11,8 @@ import {
    Box,
    Text, //
 } from '@chakra-ui/react';
+
+import { PickRequired } from '@~types/pickRequired';
 
 export default Graphic;
 export type {
