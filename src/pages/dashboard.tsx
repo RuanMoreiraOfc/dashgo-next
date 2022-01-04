@@ -17,7 +17,7 @@ function Dashboard() {
             <title>Dashboard | dashgo</title>
          </Head>
 
-         <SimpleGrid {...gridStyles}>
+         <SimpleGrid {...pageStyles}>
             <Graphic
                {...graphicStyles}
                caption='Inscritos da semana'
@@ -92,7 +92,7 @@ const options: GraphicProps['options'] = {
    },
 };
 
-const gridStyles: SimpleGridProps = {
+const pageStyles: SimpleGridProps = {
    flex: '1',
    gap: '4',
    minChildWidth: '320px',
