@@ -7,16 +7,8 @@ import {
 
 import { Fragment } from 'react';
 
-import type {
-   StackProps,
-   TextProps,
-   IconProps, //
-} from '@chakra-ui/react';
-import {
-   Stack,
-   Text,
-   Icon, //
-} from '@chakra-ui/react';
+import type { StackProps } from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 
 import type { LimitedContainerStyleProps } from '@c-atoms/LimitedContainer';
 import LimitedContainer from '@c-atoms/LimitedContainer';
@@ -47,21 +39,13 @@ function Sidebar(props: Props) {
                linkListProps={[
                   {
                      to: '/dashboard',
-                     children: (
-                        <Fragment>
-                           <Icon as={DashboardLinkIcon} />
-                           <Text>Dashboard</Text>
-                        </Fragment>
-                     ),
+                     icon: DashboardLinkIcon,
+                     children: 'Dashboard',
                   },
                   {
                      to: '/users',
-                     children: (
-                        <Fragment>
-                           <Icon as={ContactsLinkIcon} />
-                           <Text>Contatos</Text>
-                        </Fragment>
-                     ),
+                     icon: ContactsLinkIcon,
+                     children: 'Contatos',
                   },
                ]}
             />
@@ -72,21 +56,13 @@ function Sidebar(props: Props) {
                linkListProps={[
                   {
                      to: '#',
-                     children: (
-                        <Fragment>
-                           <Icon as={FormLinkIcon} />
-                           <Text>Formulário</Text>
-                        </Fragment>
-                     ),
+                     icon: FormLinkIcon,
+                     children: 'Formulário',
                   },
                   {
                      to: '#',
-                     children: (
-                        <Fragment>
-                           <Icon as={AutomationLinkIcon} />
-                           <Text>Automação</Text>
-                        </Fragment>
-                     ),
+                     icon: AutomationLinkIcon,
+                     children: 'Automação',
                   },
                ]}
             />
