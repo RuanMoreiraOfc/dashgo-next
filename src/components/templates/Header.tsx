@@ -1,22 +1,8 @@
-import { RiSearchLine } from 'react-icons/ri';
-
 import type {
-   BoxProps,
-   FlexProps,
-   InputProps,
-   IconProps,
-   StackProps,
-   TextProps,
-   AvatarProps,
+   BoxProps, //
 } from '@chakra-ui/react';
 import {
-   Box,
-   Flex,
-   Input,
-   Icon,
-   HStack,
-   Text,
-   Avatar, //
+   Box, //
 } from '@chakra-ui/react';
 
 import type { LimitedContainerStyleProps } from '@c-atoms/LimitedContainer';
@@ -34,7 +20,6 @@ export default Header;
 export type { Props as HeaderProps };
 
 type StyleProps = LimitedContainerStyleProps;
-
 type Props = Omit<StyleProps, 'as' | 'children'>;
 
 function Header(props: Props) {
