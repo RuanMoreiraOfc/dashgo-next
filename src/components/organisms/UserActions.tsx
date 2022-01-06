@@ -62,9 +62,9 @@ const userActionsStyles: StyleProps = {
 };
 
 const userActionsLeftHalfStyles: StackProps = {
-   pr: '8',
+   pr: ['6', '8'],
    py: '1',
-   spacing: '8',
+   spacing: ['6', '8'],
    borderRightWidth: 1,
    borderColor: 'gray.700',
 };
