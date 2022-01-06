@@ -26,13 +26,20 @@ export type {
 };
 
 type StyleProps = {
+   hideProfileInfo?: boolean;
    name?: string;
    email?: string;
    avatarUrl?: string;
 } & FlexProps;
 type Props = PickRequired<StyleProps, 'name' | 'email' | 'avatarUrl'>;
 
-function UserActions({ name, email, avatarUrl, ...restProps }: Props) {
+function UserActions({
+   hideProfileInfo,
+   name,
+   email,
+   avatarUrl,
+   ...restProps
+}: Props) {
    return (
       <Flex {...userActionsStyles} {...restProps}>
          <HStack {...userActionsLeftHalfStyles}>
@@ -47,7 +54,10 @@ function UserActions({ name, email, avatarUrl, ...restProps }: Props) {
          </HStack>
 
          <Flex {...userActionsRightHalfStyles}>
-            <Box {...userActionsRightHalfUserInfoStyles}>
+            <Box
+               {...userActionsRightHalfUserInfoStyles}
+               hidden={hideProfileInfo}
+            >
                <Text {...userActionsRightHalfUserInfoNameStyles}>{name}</Text>
                <Text {...userActionsRightHalfUserInfoEmailStyles}>{email}</Text>
             </Box>
