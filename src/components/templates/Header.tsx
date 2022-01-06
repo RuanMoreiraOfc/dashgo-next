@@ -7,11 +7,11 @@ import {
 
 import type { LimitedContainerStyleProps } from '@c-atoms/LimitedContainer';
 import LimitedContainer from '@c-atoms/LimitedContainer';
+import type { SearchBarStyleProps } from '@c-atoms/SearchBar';
+import SearchBar from '@c-atoms/SearchBar';
 
 import type { LogoStyleProps } from '@c-molecules/Logo';
 import Logo from '@c-molecules/Logo';
-import type { SearchBarStyleProps } from '@c-molecules/SearchBar';
-import SearchBar from '@c-molecules/SearchBar';
 
 import type { UserActionsStyleProps } from '@c-organisms/UserActions';
 import UserActions from '@c-organisms/UserActions';
