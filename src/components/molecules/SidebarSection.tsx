@@ -14,10 +14,10 @@ import Link from '@c-atoms/Link';
 
 import type { PickRequired } from '@~types/pickRequired';
 
-export default LinkListWithCaption;
+export default SidebarSection;
 export type {
-   Props as LinkListWithCaptionProps,
-   StyleProps as LinkListWithCaptionStyleProps, //
+   Props as SidebarSectionProps,
+   StyleProps as SidebarSetionStyleProps, //
 };
 
 type LinkListProps = {
@@ -37,14 +37,14 @@ type Props = PickRequired<
    'caption' | 'linkListProps'
 >;
 
-function LinkListWithCaption({
+function SidebarSection({
    insideOf,
    caption,
    linkListProps,
    ...restProps
 }: Props) {
    const FinalComponent = () => (
-      <Stack {...linkListWithCaptionStyles} as='ul'>
+      <Stack {...sidebarSectionStyles} as='ul'>
          <Text {...topicStyles} as='li'>
             {caption}
          </Text>
@@ -65,7 +65,7 @@ function LinkListWithCaption({
    );
 
    return insideOf !== undefined ? (
-      <Box as={insideOf}>
+      <Box {...sidebarSectionWrapperStyles} as={insideOf}>
          <FinalComponent />
       </Box>
    ) : (
@@ -73,9 +73,9 @@ function LinkListWithCaption({
    );
 }
 
-const linkListWithCaptionWrapperStyles: BoxProps = {};
+const sidebarSectionWrapperStyles: BoxProps = {};
 
-const linkListWithCaptionStyles: StyleProps = {
+const sidebarSectionStyles: StyleProps = {
    spacing: '6',
 };
 

@@ -5,22 +5,19 @@ import {
    RiGitMergeLine as AutomationLinkIcon,
 } from 'react-icons/ri';
 
-import { Fragment } from 'react';
-
 import type { StackProps } from '@chakra-ui/react';
 import { Stack } from '@chakra-ui/react';
 
 import type { LimitedContainerStyleProps } from '@c-atoms/LimitedContainer';
 import LimitedContainer from '@c-atoms/LimitedContainer';
 
-import type { LinkListWithCaptionStyleProps } from '@c-molecules/LinkListWithCaption';
-import LinkListWithCaption from '@c-molecules/LinkListWithCaption';
+import type { SidebarSetionStyleProps } from '@c-molecules/SidebarSection';
+import SidebarSection from '@c-molecules/SidebarSection';
 
 export default Sidebar;
 export type { Props as SidebarProps };
 
 type StyleProps = LimitedContainerStyleProps;
-
 type Props = Omit<StyleProps, 'as' | 'children'>;
 
 function Sidebar(props: Props) {
@@ -32,8 +29,8 @@ function Sidebar(props: Props) {
          variant='wrapper'
       >
          <Stack {...contentStyles} as='ul'>
-            <LinkListWithCaption
-               {...linkListStyles}
+            <SidebarSection
+               {...sectionStyles}
                insideOf='li'
                caption='Geral'
                linkListProps={[
@@ -49,8 +46,8 @@ function Sidebar(props: Props) {
                   },
                ]}
             />
-            <LinkListWithCaption
-               {...linkListStyles}
+            <SidebarSection
+               {...sectionStyles}
                insideOf='li'
                caption='Automação'
                linkListProps={[
@@ -81,4 +78,4 @@ const contentStyles: StackProps = {
    align: 'flex-start',
 };
 
-const linkListStyles: LinkListWithCaptionStyleProps = {};
+const sectionStyles: SidebarSetionStyleProps = {};
