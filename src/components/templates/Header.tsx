@@ -40,7 +40,7 @@ function Header(props: Props) {
       <LimitedContainer {...headerStyles} {...props} as='header'>
          <Box {...logoBoxStyles}>
             <Logo
-               {...logoBoxLogoStyles}
+               {...logoStyles}
                to='/dashboard'
                title='Voltar para o dashboard'
             />
@@ -76,7 +76,7 @@ const logoBoxStyles: BoxProps = {
    mr: '6',
 };
 
-const logoBoxLogoStyles: LogoStyleProps = {};
+const logoStyles: LogoStyleProps = {};
 
 const searchBarStyles: FlexProps = {
    maxW: 400,
