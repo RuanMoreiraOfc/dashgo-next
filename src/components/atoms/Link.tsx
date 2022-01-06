@@ -1,3 +1,4 @@
+import type { IconType } from 'react-icons';
 import { MdOpenInNew as ExternalLinkIcon } from 'react-icons/md';
 
 import NextLink from 'next/link';
@@ -23,18 +24,21 @@ export type {
 
 type StyleProps = {
    to?: string;
-   noIcon?: true;
+   hideExternalIcon?: true;
    selfExternal?: boolean;
    insideOf?: ChakraLinkProps['as'];
+   leftIcon?: IconType;
+   rightIcon?: IconType;
 } & Omit<ChakraLinkProps, 'href' | 'as'>;
-
 type Props = PickRequired<StyleProps, 'to'>;
 
 function Link({
    children,
    to,
    selfExternal,
-   noIcon,
+   hideExternalIcon,
+   leftIcon,
+   rightIcon,
    insideOf,
    ...restLinkProps //
 }: Props) {
@@ -72,15 +76,21 @@ function Link({
    const FinalLinkComponent = () => (
       <NextLink href={to} passHref>
          <ChakraLink {...linkStyles} {...linkProps}>
+            {leftIcon && <Icon as={leftIcon} />}
             {children}
-            {!noIcon && isExternal && (
-               <Box
-                  {...iconWrapperStyles}
-                  ml={'-' + (linkProps.rowGap ?? linkProps.gap)}
-                  as='span'
-               >
-                  <Icon {...iconStyles} as={ExternalLinkIcon} />
-               </Box>
+            {rightIcon !== undefined ? (
+               <Icon as={rightIcon} />
+            ) : (
+               !hideExternalIcon &&
+               isExternal && (
+                  <Box
+                     {...iconWrapperStyles}
+                     ml={'-' + (linkProps.rowGap ?? linkProps.gap)}
+                     as='span'
+                  >
+                     <Icon {...externalIconStyles} as={ExternalLinkIcon} />
+                  </Box>
+               )
             )}
          </ChakraLink>
       </NextLink>
@@ -107,7 +117,7 @@ const linkStyles: ChakraLinkProps = {
 
 const iconWrapperStyles: BoxProps = {};
 
-const iconStyles: IconProps = {
+const externalIconStyles: IconProps = {
    ml: '1',
 
    fontSize: '1.25em',
