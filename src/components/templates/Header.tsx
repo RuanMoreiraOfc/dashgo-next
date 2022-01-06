@@ -24,6 +24,8 @@ import LimitedContainer from '@c-atoms/LimitedContainer';
 
 import type { LogoStyleProps } from '@c-molecules/Logo';
 import Logo from '@c-molecules/Logo';
+import type { SearchBarStyleProps } from '@c-molecules/SearchBar';
+import SearchBar from '@c-molecules/SearchBar';
 
 import type { UserActionsStyleProps } from '@c-organisms/UserActions';
 import UserActions from '@c-organisms/UserActions';
@@ -46,14 +48,7 @@ function Header(props: Props) {
             />
          </Box>
 
-         <Flex {...searchBarStyles} as='label'>
-            <Input
-               {...searchBarInputStyles}
-               placeholder='Buscar na plataforma'
-            />
-
-            <Icon {...searchBarIconStyles} as={RiSearchLine} />
-         </Flex>
+         <SearchBar {...searchBarStyles} />
 
          <UserActions
             {...userActionsStyles}
@@ -78,33 +73,7 @@ const logoBoxStyles: BoxProps = {
 
 const logoStyles: LogoStyleProps = {};
 
-const searchBarStyles: FlexProps = {
-   maxW: 400,
-   px: '8',
-   py: '4',
-   borderRadius: 'full',
-   bg: 'gray.800',
-   color: 'gray.200',
-   flex: '1',
-   alignSelf: 'center',
-   gap: '4',
-   position: 'relative',
-   _focusWithin: {
-      outlineStyle: 'auto',
-   },
-};
-
-const searchBarInputStyles: InputProps = {
-   variant: 'unstyled',
-   px: '4',
-   outline: 'unset',
-   color: 'gray.50',
-   _placeholder: {
-      color: 'gray.400',
-   },
-};
-
-const searchBarIconStyles: IconProps = {};
+const searchBarStyles: SearchBarStyleProps = {};
 
 const userActionsStyles: UserActionsStyleProps = {
    pl: '8',
