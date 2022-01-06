@@ -21,8 +21,8 @@ import {
 import type { LimitedContainerStyleProps } from '@c-atoms/LimitedContainer';
 import LimitedContainer from '@c-atoms/LimitedContainer';
 
-import type { LinkListItemWithCaptionStyleProps } from '@c-molecules/LinkListItemWithCaption';
-import LinkListItemWithCaption from '@c-molecules/LinkListItemWithCaption';
+import type { LinkListWithCaptionStyleProps } from '@c-molecules/LinkListWithCaption';
+import LinkListWithCaption from '@c-molecules/LinkListWithCaption';
 
 export default Sidebar;
 export type { Props as SidebarProps };
@@ -40,7 +40,7 @@ function Sidebar(props: Props) {
          variant='wrapper'
       >
          <Stack {...contentStyles} as='ul'>
-            <LinkListItemWithCaption
+            <LinkListWithCaption
                {...linkListStyles}
                insideOf='li'
                caption='Geral'
@@ -65,7 +65,7 @@ function Sidebar(props: Props) {
                   },
                ]}
             />
-            <LinkListItemWithCaption
+            <LinkListWithCaption
                {...linkListStyles}
                insideOf='li'
                caption='Automação'
@@ -105,4 +105,4 @@ const contentStyles: StackProps = {
    align: 'flex-start',
 };
 
-const linkListStyles: LinkListItemWithCaptionStyleProps = {};
+const linkListStyles: LinkListWithCaptionStyleProps = {};

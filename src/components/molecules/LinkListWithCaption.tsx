@@ -14,10 +14,10 @@ import Link from '@c-atoms/Link';
 
 import type { PickRequired } from '@~types/pickRequired';
 
-export default LinkListItemWithCaption;
+export default LinkListWithCaption;
 export type {
-   Props as LinkListItemWithCaptionProps,
-   StyleProps as LinkListItemWithCaptionStyleProps, //
+   Props as LinkListWithCaptionProps,
+   StyleProps as LinkListWithCaptionStyleProps, //
 };
 
 type StyleProps = {
@@ -33,14 +33,14 @@ type Props = PickRequired<
    'caption' | 'linkListProps'
 >;
 
-function LinkListItemWithCaption({
+function LinkListWithCaption({
    insideOf,
    caption,
    linkListProps,
    ...restProps
 }: Props) {
    const FinalComponent = () => (
-      <Stack {...linkListItemWithCaptionStyles} as='ul'>
+      <Stack {...linkListWithCaptionStyles} as='ul'>
          <Text {...topicStyles} as='li'>
             {caption}
          </Text>
@@ -68,9 +68,9 @@ function LinkListItemWithCaption({
    );
 }
 
-const linkListItemWithCaptionWrapperStyles: BoxProps = {};
+const linkListWithCaptionWrapperStyles: BoxProps = {};
 
-const linkListItemWithCaptionStyles: StyleProps = {
+const linkListWithCaptionStyles: StyleProps = {
    spacing: '6',
 };
 
