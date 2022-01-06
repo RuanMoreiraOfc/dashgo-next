@@ -20,13 +20,17 @@ export type {
    StyleProps as LinkListWithCaptionStyleProps, //
 };
 
+type LinkListProps = {
+   icon?: LinkStyleProps['leftIcon'];
+} & PickRequired<
+   Omit<LinkStyleProps, 'insideOf' | 'leftIcon' | 'rightIcon'>,
+   'to' | 'children'
+>;
+
 type StyleProps = {
    insideOf?: BoxProps['as'];
    caption?: string;
-   linkListProps?: PickRequired<
-      Omit<LinkStyleProps, 'insideOf'>,
-      'to' | 'children'
-   >[];
+   linkListProps?: LinkListProps[];
 } & StackProps;
 type Props = PickRequired<
    Omit<StyleProps, 'as' | 'children'>,
@@ -46,12 +50,13 @@ function LinkListWithCaption({
          </Text>
          <Box as='li'>
             <Stack {...listStyles} as='ul'>
-               {linkListProps.map((linkProps, i) => (
+               {linkListProps.map(({ icon, ...linkProps }, i) => (
                   <Link
                      key={linkProps.to}
                      {...linkStyles}
                      {...linkProps}
-                     insideOf='li' //
+                     insideOf='li'
+                     leftIcon={icon}
                   />
                ))}
             </Stack>
