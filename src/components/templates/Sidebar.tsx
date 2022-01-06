@@ -46,7 +46,7 @@ function Sidebar(props: Props) {
                caption='Geral'
                linkListProps={[
                   {
-                     to: '#',
+                     to: '/dashboard',
                      children: (
                         <Fragment>
                            <Icon as={DashboardLinkIcon} />
@@ -55,7 +55,7 @@ function Sidebar(props: Props) {
                      ),
                   },
                   {
-                     to: '#',
+                     to: '/users',
                      children: (
                         <Fragment>
                            <Icon as={ContactsLinkIcon} />
