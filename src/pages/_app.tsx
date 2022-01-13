@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 
 import { ChakraProvider } from '@chakra-ui/react';
 
+import SidebarDrawerProvider from '@contexts/SidebarDrawerContext';
+
 import LimitedContainer from '@c-atoms/LimitedContainer';
 
 import Header from '@c-templates/Header';
@@ -19,16 +21,18 @@ function MyApp({ Component, pageProps }: AppProps) {
 
    return (
       <ChakraProvider theme={theme}>
-         {isNotAtHome && <Header />}
+         <SidebarDrawerProvider>
+            {isNotAtHome && <Header />}
 
-         <LimitedContainer
-            pt={isNotAtHome ? '6' : undefined}
-            align='flex-start'
-            as='main'
-         >
-            {isNotAtHome && <Sidebar />}
-            <Component {...pageProps} />
-         </LimitedContainer>
+            <LimitedContainer
+               pt={isNotAtHome ? '6' : undefined}
+               align='flex-start'
+               as='main'
+            >
+               {isNotAtHome && <Sidebar />}
+               <Component {...pageProps} />
+            </LimitedContainer>
+         </SidebarDrawerProvider>
       </ChakraProvider>
    );
 }
