@@ -1,4 +1,8 @@
-import { RiNotificationLine, RiUserAddLine } from 'react-icons/ri';
+import {
+   RiNotificationLine as NotificationIcon,
+   // FIXME: Change AddIcon to sth else
+   RiUserAddLine as AddIcon,
+} from 'react-icons/ri';
 
 import {
    FlexProps,
@@ -45,11 +49,11 @@ function UserActions({
          <HStack {...userActionsLeftHalfStyles}>
             <Icon
                {...userActionsLeftHalfNotificationIconStyles}
-               as={RiNotificationLine}
+               as={NotificationIcon}
             />
             <Icon
                {...userActionsLeftHalfAddUserIconStyles}
-               as={RiUserAddLine}
+               as={AddIcon} //
             />
          </HStack>
 
