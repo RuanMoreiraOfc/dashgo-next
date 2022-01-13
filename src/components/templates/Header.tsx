@@ -1,7 +1,19 @@
+import { RiMenuLine as HamburgerMenuIcon } from 'react-icons/ri';
+
 import { useBreakpointValue } from '@chakra-ui/react';
 
-import type { BoxProps } from '@chakra-ui/react';
-import { Box } from '@chakra-ui/react';
+import { useSidebarDrawer } from '@contexts/SidebarDrawerContext';
+
+import type {
+   IconButtonProps,
+   IconProps,
+   BoxProps, //
+} from '@chakra-ui/react';
+import {
+   IconButton,
+   Icon,
+   Box, //
+} from '@chakra-ui/react';
 
 import type { LimitedContainerStyleProps } from '@c-atoms/LimitedContainer';
 import LimitedContainer from '@c-atoms/LimitedContainer';
@@ -21,11 +33,21 @@ type StyleProps = LimitedContainerStyleProps;
 type Props = Omit<StyleProps, 'as' | 'children'>;
 
 function Header(props: Props) {
+   const { onOpen } = useSidebarDrawer();
+
    const isSmallVersion = useBreakpointValue({ base: true, md: false });
    const isMediumVersion = useBreakpointValue({ base: true, lg: false });
 
    return (
       <LimitedContainer {...headerStyles} {...props} as='header'>
+         <IconButton
+            {...hamburgerMenuStyles}
+            icon={<Icon as={HamburgerMenuIcon} />}
+            onClick={onOpen}
+            hidden={!isMediumVersion}
+            aria-label='Abrir Barra Lateral'
+         />
+
          <Box {...logoBoxStyles}>
             <Logo
                {...logoStyles}
@@ -38,7 +60,6 @@ function Header(props: Props) {
             {...searchBarStyles}
             hidden={isMediumVersion} //
          />
-
          <UserActions
             {...userActionsStyles}
             hideProfileInfo={isSmallVersion}
@@ -56,6 +77,12 @@ const headerStyles: StyleProps = {
    align: 'center',
    justify: { base: 'space-between', lg: 'unset' },
    gap: '8',
+};
+
+const hamburgerMenuStyles: Partial<IconButtonProps> = {
+   mr: '2',
+   fontSize: '24',
+   variant: 'unstyled',
 };
 
 const logoBoxStyles: BoxProps = {
