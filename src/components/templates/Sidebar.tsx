@@ -5,11 +5,26 @@ import {
    RiGitMergeLine as AutomationLinkIcon,
 } from 'react-icons/ri';
 
-import type { BoxProps, StackProps } from '@chakra-ui/react';
-import { Box, Stack } from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/react';
 
-import type { SidebarSetionStyleProps } from '@c-molecules/SidebarSection';
-import SidebarSection from '@c-molecules/SidebarSection';
+import { useSidebarDrawer } from '@contexts/SidebarDrawerContext';
+
+import type {
+   BoxProps,
+   DrawerContentProps, //
+} from '@chakra-ui/react';
+import {
+   Box,
+   Drawer,
+   DrawerOverlay,
+   DrawerContent,
+   DrawerCloseButton,
+   DrawerHeader,
+   DrawerBody,
+} from '@chakra-ui/react';
+
+import type { SidebarContentStyleProps } from '@c-organisms/SidebarContent';
+import SidebarContent from '@c-organisms/SidebarContent';
 
 export default Sidebar;
 export type { Props as SidebarProps };
@@ -18,47 +33,36 @@ type StyleProps = BoxProps;
 type Props = Omit<StyleProps, 'as' | 'children'>;
 
 function Sidebar(props: Props) {
+   const { isOpen, onClose } = useSidebarDrawer();
+   const isDrawerSidebar = useBreakpointValue({ base: true, lg: false });
+
+   if (isDrawerSidebar) {
+      return (
+         <Drawer placement='left' isOpen={isOpen} onClose={onClose}>
+            <DrawerOverlay>
+               <DrawerContent {...drawerContentStyles}>
+                  <DrawerCloseButton mt='6' />
+                  <DrawerHeader>Navegação</DrawerHeader>
+
+                  <DrawerBody>
+                     <SidebarContent {...sidebarContentStyles} />
+                  </DrawerBody>
+               </DrawerContent>
+            </DrawerOverlay>
+         </Drawer>
+      );
+   }
+
    return (
       <Box {...sidebarStyles} {...props} as='aside'>
-         <Stack {...contentStyles} as='ul'>
-            <SidebarSection
-               {...sectionStyles}
-               insideOf='li'
-               caption='Geral'
-               linkListProps={[
-                  {
-                     to: '/dashboard',
-                     icon: DashboardLinkIcon,
-                     children: 'Dashboard',
-                  },
-                  {
-                     to: '/users',
-                     icon: ContactsLinkIcon,
-                     children: 'Contatos',
-                  },
-               ]}
-            />
-            <SidebarSection
-               {...sectionStyles}
-               insideOf='li'
-               caption='Automação'
-               linkListProps={[
-                  {
-                     to: '#',
-                     icon: FormLinkIcon,
-                     children: 'Formulário',
-                  },
-                  {
-                     to: '#',
-                     icon: AutomationLinkIcon,
-                     children: 'Automação',
-                  },
-               ]}
-            />
-         </Stack>
+         <SidebarContent {...sidebarContentStyles} />
       </Box>
    );
 }
+const drawerContentStyles: DrawerContentProps = {
+   p: '4',
+   bgColor: 'gray.800',
+};
 
 const sidebarStyles: StyleProps = {
    maxW: '64',
@@ -66,9 +70,4 @@ const sidebarStyles: StyleProps = {
    transition: 'none',
 };
 
-const contentStyles: StackProps = {
-   spacing: '12',
-   align: 'flex-start',
-};
-
-const sectionStyles: SidebarSetionStyleProps = {};
+const sidebarContentStyles: SidebarContentStyleProps = {};
