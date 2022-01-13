@@ -13,10 +13,10 @@ import {
 
 import type { PickRequired } from '@~types/pickRequired';
 
-export default UserListTableHead;
+export default TableHeadUserList;
 export type {
-   Props as UserListTableHeadProps,
-   StyleProps as UserListTableHeadStyleProps, //
+   Props as TableHeadUserListProps,
+   StyleProps as TableHeadUserListStyleProps, //
 };
 
 type StyleProps = {
@@ -25,9 +25,9 @@ type StyleProps = {
 } & TableHeadProps;
 type Props = PickRequired<StyleProps, 'handleToggle'>;
 
-function UserListTableHead({ isChecked, handleToggle, ...restProps }: Props) {
+function TableHeadUserList({ isChecked, handleToggle, ...restProps }: Props) {
    return (
-      <Thead {...userListTableHeadStyles} {...restProps}>
+      <Thead {...tableHeadUserListStyles} {...restProps}>
          <Tr>
             <Th
                w='8'
@@ -48,4 +48,4 @@ function UserListTableHead({ isChecked, handleToggle, ...restProps }: Props) {
    );
 }
 
-const userListTableHeadStyles: StyleProps = {};
+const tableHeadUserListStyles: StyleProps = {};

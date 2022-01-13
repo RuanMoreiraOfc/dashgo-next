@@ -3,22 +3,22 @@ import { useState, useEffect, useCallback } from 'react';
 import type { TableProps } from '@chakra-ui/react';
 import { Table } from '@chakra-ui/react';
 
-import UserListTableHead from '@c-molecules/UserListTableHead';
-import type { UserListTableBodyStyleProps } from '@c-molecules/UserListTableBody';
-import UserListTableBody from '@c-molecules/UserListTableBody';
+import TableHeadUserList from '@c-molecules/TableHeadUserList';
+import type { TableBodyUserListStyleProps } from '@c-molecules/TableBodyUserList';
+import TableBodyUserList from '@c-molecules/TableBodyUserList';
 
 import type { PickRequired } from '@~types/pickRequired';
 
-export default UserListTable;
+export default TableUserList;
 export type {
-   Props as UserListTableProps,
-   StyleProps as UserListTableStyleProps, //
+   Props as TableUserListProps,
+   StyleProps as TableUserListStyleProps, //
 };
 
-type StyleProps = Pick<UserListTableBodyStyleProps, 'data'> & TableProps;
+type StyleProps = Pick<TableBodyUserListStyleProps, 'data'> & TableProps;
 type Props = PickRequired<StyleProps, 'data'>;
 
-function UserListTable({ data, ...restProps }: Props) {
+function TableUserList({ data, ...restProps }: Props) {
    const [isHeadChecked, setIsHeadChecked] = useState<boolean>();
    const [checkedList, setCheckedList] = useState<boolean[]>(
       Array.from(data, () => false),
@@ -48,12 +48,12 @@ function UserListTable({ data, ...restProps }: Props) {
    }, [isHeadChecked]);
 
    return (
-      <Table {...userListTableStyles} {...restProps}>
-         <UserListTableHead
+      <Table {...tableUserListStyles} {...restProps}>
+         <TableHeadUserList
             isChecked={isHeadChecked}
             handleToggle={ToggleAll}
          />
-         <UserListTableBody
+         <TableBodyUserList
             data={checkedList.map((item, i) => ({
                ...data[i],
                isChecked: item,
@@ -68,6 +68,6 @@ function UserListTable({ data, ...restProps }: Props) {
    );
 }
 
-const userListTableStyles: StyleProps = {
+const tableUserListStyles: StyleProps = {
    gap: '8',
 };

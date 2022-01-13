@@ -19,7 +19,7 @@ import {
 
 import Link from '@c-atoms/Link';
 
-import UserListTable from '@c-organisms/UserListTable';
+import TableUserList from '@c-organisms/TableUserList';
 import type { PaginationStyleProps } from '@c-organisms/Pagination';
 import Pagination from '@c-organisms/Pagination';
 
@@ -45,7 +45,7 @@ function ListUser() {
                </Button>
             </Flex>
 
-            <UserListTable
+            <TableUserList
                data={[
                   {
                      name: 'Ruan Moreira',

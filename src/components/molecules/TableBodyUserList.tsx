@@ -23,10 +23,10 @@ import {
 
 import type { PickRequired } from '@~types/pickRequired';
 
-export default UserListTableBody;
+export default TableBodyUserList;
 export type {
-   Props as UserListTableBodyProps,
-   StyleProps as UserListTableBodyStyleProps, //
+   Props as TableBodyUserListProps,
+   StyleProps as TableBodyUserListStyleProps, //
 };
 
 type TableData = {
@@ -42,9 +42,9 @@ type StyleProps = {
 } & TableBodyProps;
 type Props = PickRequired<StyleProps, 'data'>;
 
-function UserListTableBody({ data, ...restProps }: Props) {
+function TableBodyUserList({ data, ...restProps }: Props) {
    return (
-      <Tbody {...userListTableBodyStyles} {...restProps}>
+      <Tbody {...tableBodyUserListStyles} {...restProps}>
          {data.map(
             ({ isChecked, handleToggle, name, email, created_at }, i) => (
                <Tr key={email}>
@@ -77,7 +77,7 @@ function UserListTableBody({ data, ...restProps }: Props) {
    );
 }
 
-const userListTableBodyStyles: StyleProps = {};
+const tableBodyUserListStyles: StyleProps = {};
 
 const checkboxStyles: CheckboxProps = {
    colorScheme: 'pink',
