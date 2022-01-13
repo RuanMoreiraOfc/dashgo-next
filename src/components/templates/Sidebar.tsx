@@ -5,11 +5,8 @@ import {
    RiGitMergeLine as AutomationLinkIcon,
 } from 'react-icons/ri';
 
-import type { StackProps } from '@chakra-ui/react';
-import { Stack } from '@chakra-ui/react';
-
-import type { LimitedContainerStyleProps } from '@c-atoms/LimitedContainer';
-import LimitedContainer from '@c-atoms/LimitedContainer';
+import type { BoxProps, StackProps } from '@chakra-ui/react';
+import { Box, Stack } from '@chakra-ui/react';
 
 import type { SidebarSetionStyleProps } from '@c-molecules/SidebarSection';
 import SidebarSection from '@c-molecules/SidebarSection';
@@ -17,17 +14,12 @@ import SidebarSection from '@c-molecules/SidebarSection';
 export default Sidebar;
 export type { Props as SidebarProps };
 
-type StyleProps = LimitedContainerStyleProps;
+type StyleProps = BoxProps;
 type Props = Omit<StyleProps, 'as' | 'children'>;
 
 function Sidebar(props: Props) {
    return (
-      <LimitedContainer
-         {...sidebarStyles}
-         {...props}
-         as='aside'
-         variant='wrapper'
-      >
+      <Box {...sidebarStyles} {...props} as='aside'>
          <Stack {...contentStyles} as='ul'>
             <SidebarSection
                {...sectionStyles}
@@ -64,12 +56,13 @@ function Sidebar(props: Props) {
                ]}
             />
          </Stack>
-      </LimitedContainer>
+      </Box>
    );
 }
 
 const sidebarStyles: StyleProps = {
    maxW: '64',
+   width: '100%',
    transition: 'none',
 };
 
