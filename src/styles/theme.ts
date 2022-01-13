@@ -45,6 +45,16 @@ const theme = extendTheme({
         },
       },
     },
+    Drawer: {
+      baseStyle: {
+        closeButton: {
+          outline: false,
+          _focus: {
+            boxShadow: false,
+          },
+        },
+      },
+    },
   },
   transition: {
     property: {
