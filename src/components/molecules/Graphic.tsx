@@ -55,7 +55,7 @@ function Graphic({
 }
 
 const graphicStyles: StyleProps = {
-   p: '8',
+   p: { base: '6', md: '8' },
    borderRadius: 8,
    bg: 'gray.800',
 };
