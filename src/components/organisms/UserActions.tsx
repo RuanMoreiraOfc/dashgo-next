@@ -72,13 +72,13 @@ function UserActions({
 }
 
 const userActionsStyles: StyleProps = {
-   gap: '8',
+   gap: { base: '4', md: '8' },
 };
 
 const userActionsLeftHalfStyles: StackProps = {
-   pr: ['6', '8'],
+   pr: { base: '4', md: '8' },
    py: '1',
-   spacing: ['6', '8'],
+   spacing: { base: '4', md: '8' },
    borderRightWidth: 1,
    borderColor: 'gray.700',
 };
