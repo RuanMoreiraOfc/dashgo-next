@@ -76,11 +76,10 @@ const headerStyles: StyleProps = {
    pt: '4',
    align: 'center',
    justify: { base: 'space-between', lg: 'unset' },
-   gap: '8',
+   gap: { base: '4', md: '8' },
 };
 
 const hamburgerMenuStyles: Partial<IconButtonProps> = {
-   mr: '2',
    fontSize: '24',
    variant: 'unstyled',
 };
