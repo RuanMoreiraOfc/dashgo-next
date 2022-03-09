@@ -50,7 +50,7 @@ function SidebarSection({
          </Text>
          <Box as='li'>
             <Stack {...listStyles} as='ul'>
-               {linkListProps.map(({ icon, ...linkProps }, i) => (
+               {linkListProps.map(({ icon, ...linkProps }) => (
                   <Link
                      key={linkProps.to}
                      {...linkStyles}
