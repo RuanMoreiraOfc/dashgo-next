@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
+import { useBreakpointValue } from '@chakra-ui/react';
+
 import type { TableProps } from '@chakra-ui/react';
 import { Table } from '@chakra-ui/react';
 
@@ -23,6 +25,9 @@ function TableUserList({ data, ...restProps }: Props) {
    const [checkedList, setCheckedList] = useState<boolean[]>(
       Array.from(data, () => false),
    );
+
+   const isSmallVersion = useBreakpointValue({ base: true, sm: false });
+   const isMediumVersion = useBreakpointValue({ base: true, md: false });
 
    useEffect(() => {
       if (isHeadChecked === undefined) {
@@ -52,8 +57,10 @@ function TableUserList({ data, ...restProps }: Props) {
          <TableHeadUserList
             isChecked={isHeadChecked}
             handleToggle={ToggleAll}
+            hideExtraColumns={isSmallVersion || { date: isMediumVersion }}
          />
          <TableBodyUserList
+            hideExtraColumns={isSmallVersion || { date: isMediumVersion }}
             data={checkedList.map((item, i) => ({
                ...data[i],
                isChecked: item,
@@ -68,6 +75,4 @@ function TableUserList({ data, ...restProps }: Props) {
    );
 }
 
-const tableUserListStyles: StyleProps = {
-   gap: '8',
-};
+const tableUserListStyles: StyleProps = {};
