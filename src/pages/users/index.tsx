@@ -55,7 +55,7 @@ function ListUser() {
                   {
                      name: 'Diego Fernandes',
                      email: 'diego.schell.f@gmail.com',
-                     created_at: '5r de Janeiro de 2022',
+                     created_at: '5 de Janeiro de 2022',
                   },
                ]}
             />
