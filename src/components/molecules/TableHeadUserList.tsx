@@ -21,11 +21,17 @@ export type {
 
 type StyleProps = {
    isChecked?: boolean;
+   hideExtraColumns?: boolean | { date?: boolean; miscellaneous?: boolean };
    handleToggle?: () => void;
 } & TableHeadProps;
 type Props = PickRequired<StyleProps, 'handleToggle'>;
 
-function TableHeadUserList({ isChecked, handleToggle, ...restProps }: Props) {
+function TableHeadUserList({
+   isChecked,
+   handleToggle,
+   hideExtraColumns,
+   ...restProps
+}: Props) {
    return (
       <Thead {...tableHeadUserListStyles} {...restProps}>
          <Tr>
@@ -41,8 +47,23 @@ function TableHeadUserList({ isChecked, handleToggle, ...restProps }: Props) {
                />
             </Th>
             <Th>Usuário</Th>
-            <Th>Data de cadastro</Th>
-            <Th width='8'></Th>
+            <Th
+               hidden={
+                  typeof hideExtraColumns === 'boolean'
+                     ? hideExtraColumns
+                     : hideExtraColumns?.date
+               }
+            >
+               Data de cadastro
+            </Th>
+            <Th
+               hidden={
+                  typeof hideExtraColumns === 'boolean'
+                     ? hideExtraColumns
+                     : hideExtraColumns?.miscellaneous
+               }
+               width='8'
+            ></Th>
          </Tr>
       </Thead>
    );
