@@ -39,10 +39,11 @@ type TableData = {
 
 type StyleProps = {
    data?: TableData[];
+   hideExtraColumns?: boolean | { date?: boolean; miscellaneous?: boolean };
 } & TableBodyProps;
 type Props = PickRequired<StyleProps, 'data'>;
 
-function TableBodyUserList({ data, ...restProps }: Props) {
+function TableBodyUserList({ data, hideExtraColumns, ...restProps }: Props) {
    return (
       <Tbody {...tableBodyUserListStyles} {...restProps}>
          {data.map(
@@ -61,8 +62,22 @@ function TableBodyUserList({ data, ...restProps }: Props) {
                         <Text {...emailStyles}>{email}</Text>
                      </Box>
                   </Td>
-                  <Td>{created_at}</Td>
-                  <Td>
+                  <Td
+                     hidden={
+                        typeof hideExtraColumns === 'boolean'
+                           ? hideExtraColumns
+                           : hideExtraColumns?.date
+                     }
+                  >
+                     {created_at}
+                  </Td>
+                  <Td
+                     hidden={
+                        typeof hideExtraColumns === 'boolean'
+                           ? hideExtraColumns
+                           : hideExtraColumns?.miscellaneous
+                     }
+                  >
                      <Button
                         {...editButtonStyles}
                         leftIcon={<Icon fontSize='16' as={EditIcon} />}
