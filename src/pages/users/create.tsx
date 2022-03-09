@@ -76,7 +76,8 @@ function CreateUser() {
 }
 
 const pageStyles: BoxProps = {
-   p: '8',
+   w: '100%',
+   p: { base: '6', md: '8' },
    borderRadius: 8,
    bg: 'gray.800',
    flex: '1',
@@ -93,12 +94,12 @@ const dividerStyles: DividerProps = {
 };
 
 const fieldSetStyles: StackProps = {
-   spacing: '8',
+   spacing: { base: '6', md: '8' },
 };
 
 const fieldSetGroupStyles: SimpleGridProps = {
    w: '100%',
-   spacing: '8',
+   spacing: { base: '6', md: '8' },
    minChildWidth: '240px',
 };
 
