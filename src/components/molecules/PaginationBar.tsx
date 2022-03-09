@@ -51,7 +51,11 @@ function PaginationBar({ goto, currentPage, maxPage, ...restProps }: Props) {
    );
 }
 
-const paginationBarStyles: StyleProps = {};
+const paginationBarStyles: StyleProps = {
+   flexWrap: 'wrap',
+   justify: 'center',
+   rowGap: 2,
+};
 
 const linkStyles: ButtonProps = {
    size: 'sm',
