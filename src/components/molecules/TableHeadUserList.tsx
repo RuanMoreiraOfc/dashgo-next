@@ -46,7 +46,7 @@ function TableHeadUserList({
                   onChange={handleToggle}
                />
             </Th>
-            <Th>Usuário</Th>
+            <Th pr='0'>Usuário</Th>
             <Th
                hidden={
                   typeof hideExtraColumns === 'boolean'
