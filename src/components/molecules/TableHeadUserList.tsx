@@ -62,7 +62,7 @@ function TableHeadUserList({
                      ? hideExtraColumns
                      : hideExtraColumns?.miscellaneous
                }
-               width='8'
+               w='8'
             ></Th>
          </Tr>
       </Thead>
