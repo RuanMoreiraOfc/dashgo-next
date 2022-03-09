@@ -4,7 +4,7 @@ import type {
    TextProps, //
 } from '@chakra-ui/react';
 import {
-   HStack,
+   Stack,
    Box,
    Text, //
 } from '@chakra-ui/react';
@@ -47,7 +47,7 @@ function Pagination({
       currentPage < maxPage ? maxItemsPerPage * currentPage : maxItems;
 
    return (
-      <HStack {...paginationStyles} {...restProps}>
+      <Stack {...paginationStyles} {...restProps}>
          <Box>
             <Text>
                <Text as='strong'>{startPoint}</Text>
@@ -59,13 +59,13 @@ function Pagination({
          </Box>
 
          <PaginationBar {...{ goto, currentPage, maxPage }} />
-      </HStack>
+      </Stack>
    );
 }
 
 const paginationStyles: StyleProps = {
    w: '100%',
+   flexDir: { base: 'column', md: 'row' },
    align: 'center',
    justify: 'space-between',
-   spacing: '6',
 };
