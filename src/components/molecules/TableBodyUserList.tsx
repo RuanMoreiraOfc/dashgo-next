@@ -56,7 +56,7 @@ function TableBodyUserList({ data, hideExtraColumns, ...restProps }: Props) {
                         onChange={handleToggle}
                      />
                   </Td>
-                  <Td>
+                  <Td pr='0'>
                      <Box>
                         <Text {...nameStyles}>{name}</Text>
                         <Text {...emailStyles}>{email}</Text>
