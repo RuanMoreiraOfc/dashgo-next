@@ -13,6 +13,7 @@ import type { LinkStyleProps } from '@c-atoms/Link';
 import Link from '@c-atoms/Link';
 
 import type { PickRequired } from '@~types/pickRequired';
+import type { OmitDistributive } from '@~types/omitDistributive';
 
 export default SidebarSection;
 export type {
@@ -23,7 +24,7 @@ export type {
 type LinkListProps = {
    icon?: LinkStyleProps['leftIcon'];
 } & PickRequired<
-   Omit<LinkStyleProps, 'insideOf' | 'leftIcon' | 'rightIcon'>,
+   OmitDistributive<LinkStyleProps, 'insideOf' | 'leftIcon' | 'rightIcon'>,
    'to' | 'children'
 >;
 
@@ -33,7 +34,7 @@ type StyleProps = {
    linkListProps?: LinkListProps[];
 } & StackProps;
 type Props = PickRequired<
-   Omit<StyleProps, 'as' | 'children'>,
+   OmitDistributive<StyleProps, 'as' | 'children'>,
    'caption' | 'linkListProps'
 >;
 

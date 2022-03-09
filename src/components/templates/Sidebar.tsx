@@ -26,11 +26,13 @@ import {
 import type { SidebarContentStyleProps } from '@c-organisms/SidebarContent';
 import SidebarContent from '@c-organisms/SidebarContent';
 
+import type { OmitDistributive } from '@~types/omitDistributive';
+
 export default Sidebar;
 export type { Props as SidebarProps };
 
 type StyleProps = BoxProps;
-type Props = Omit<StyleProps, 'as' | 'children'>;
+type Props = OmitDistributive<StyleProps, 'as' | 'children'>;
 
 function Sidebar(props: Props) {
    const { isOpen, onClose } = useSidebarDrawer();

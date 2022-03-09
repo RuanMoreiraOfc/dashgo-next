@@ -26,11 +26,13 @@ import Logo from '@c-molecules/Logo';
 import type { UserActionsStyleProps } from '@c-organisms/UserActions';
 import UserActions from '@c-organisms/UserActions';
 
+import type { OmitDistributive } from '@~types/omitDistributive';
+
 export default Header;
 export type { Props as HeaderProps };
 
 type StyleProps = LimitedContainerStyleProps;
-type Props = Omit<StyleProps, 'as' | 'children'>;
+type Props = OmitDistributive<StyleProps, 'as' | 'children'>;
 
 function Header(props: Props) {
    const { onOpen } = useSidebarDrawer();

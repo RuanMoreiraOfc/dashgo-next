@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 
 import type { PickRequired } from '@~types/pickRequired';
+import type { OmitDistributive } from '@~types/omitDistributive';
 
 export default Link;
 export type {
@@ -29,7 +30,7 @@ type StyleProps = {
    insideOf?: ChakraLinkProps['as'];
    leftIcon?: IconType;
    rightIcon?: IconType;
-} & Omit<ChakraLinkProps, 'href' | 'as'>;
+} & OmitDistributive<ChakraLinkProps, 'href' | 'as'>;
 type Props = PickRequired<StyleProps, 'to'>;
 
 function Link({
@@ -55,7 +56,7 @@ function Link({
       to.startsWith('https://');
 
    const isForeign = isExternal && !selfExternal;
-   const linkProps: Omit<ChakraLinkProps, 'href'> = {
+   const linkProps: OmitDistributive<ChakraLinkProps, 'href'> = {
       target: isExternal ? '_blank' : undefined,
       rel:
          Object.entries({

@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 
 import { PickRequired } from '@~types/pickRequired';
+import type { OmitDistributive } from '@~types/omitDistributive';
 
 export default Graphic;
 export type {
@@ -27,7 +28,7 @@ type StyleProps = {
 } & Partial<Pick<ReactApexchartsProps, 'type' | 'series' | 'options'>> &
    BoxProps;
 type Props = PickRequired<
-   Omit<StyleProps, 'as' | 'children'>,
+   OmitDistributive<StyleProps, 'as' | 'children'>,
    'caption' | 'series' | 'options'
 >;
 

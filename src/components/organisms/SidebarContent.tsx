@@ -11,6 +11,8 @@ import { Box, Stack } from '@chakra-ui/react';
 import type { SidebarSetionStyleProps } from '@c-molecules/SidebarSection';
 import SidebarSection from '@c-molecules/SidebarSection';
 
+import type { OmitDistributive } from '@~types/omitDistributive';
+
 export default SidebarContent;
 export type {
    Props as SidebarContentProps,
@@ -18,7 +20,7 @@ export type {
 };
 
 type StyleProps = BoxProps;
-type Props = Omit<StyleProps, 'as' | 'children'>;
+type Props = OmitDistributive<StyleProps, 'as' | 'children'>;
 
 function SidebarContent(props: Props) {
    return (
