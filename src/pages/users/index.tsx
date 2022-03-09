@@ -73,7 +73,8 @@ function ListUser() {
 }
 
 const pageStyles: BoxProps = {
-   p: '8',
+   w: '100%',
+   p: { base: '6', md: '8' },
    borderRadius: 8,
    bg: 'gray.800',
    flex: '1',
